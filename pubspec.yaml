@@ -18,7 +18,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   triple_switch:
     #path: ../triple_switch
-    git: https://github.com/leocoderu/TripleSwitch
+    git: https://github.com/leocoderu/triple_switch
 
   cupertino_icons: ^1.0.8
   model_layer:
