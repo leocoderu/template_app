@@ -2,9 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:triple_switch/triple_switch.dart';
 
-//import 'package:template_app/pages/settings_page/widgets/triple_switch/triple_switch.dart';
-//import 'package:template_app/pages/settings_page/widgets/triple_switch/triple_switch_ui.dart';
-
 class SwitchTile extends StatelessWidget {
   final bool? enabled;
   final IconData? icon;
@@ -34,11 +31,12 @@ class SwitchTile extends StatelessWidget {
             VerticalDivider(),
             SizedBox(width: 20),
             TripleSwitch(
-              position: value,
+              id: 'switchTest',
+              value: value,
               timeoutOffOn: timeoutOffOn,
               timeoutOnOff: timeoutOnOff,
               onChanged: (value) {
-                print(value);
+                 print(value);
               },
             ),
           ],

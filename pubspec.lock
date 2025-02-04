@@ -579,11 +579,9 @@ packages:
   triple_switch:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "7b7fac3877e3b31fc00f6ff13cedbfb61b730f1f"
-      url: "https://github.com/leocoderu/triple_switch"
-    source: git
+      path: "../triple_switch"
+      relative: true
+    source: path
     version: "0.0.1"
   typed_data:
     dependency: transitive

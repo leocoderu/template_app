@@ -7,6 +7,11 @@ import 'dart:isolate';
 
 void requestData(({String parameter, SendPort sendPort}) data) async {
   double res = 9934.434;
+
+
+  for(double d = 0; d < 5000000000; d++) {
+    res = d;
+  }
   //Weather? weather;
 
   // String api = 'https://api.weatherapi.com/v1/current.json';

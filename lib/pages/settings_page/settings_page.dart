@@ -87,10 +87,14 @@ class _SettingsPageState extends State<SettingsPage> {
                         icon: Icons.recycling,
                         title: 'Тест Triple switch',
                         subtitle: 'Тестирование виджета',
-                        value: swPos,       // TODO: Get it from Hive
+                        value: swPos,         // TODO: Get it from Hive
                         timeoutOffOn: 20,   // Timeout when switching Off -> On
-                        timeoutOnOff: 20,   // Timeout when switching On -> Off
-                        onChanged: (value) => setState(() => swPos = value), // TODO: Save value to Hive
+                        timeoutOnOff: 10,   // Timeout when switching On -> Off
+                        onChanged: (value) {
+                          setState(() => swPos = value); // TODO: Save value to Hive
+                          // Run Heavy Function
+
+                        },
                       ),
                     ],
                   ),
