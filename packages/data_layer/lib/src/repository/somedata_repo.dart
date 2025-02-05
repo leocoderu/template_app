@@ -1,37 +1,18 @@
-//import 'dart:convert';
 import 'dart:isolate';
+import 'dart:math';
 
-//import 'package:flutter/material.dart';
-//import 'package:get_weather/model/weather.dart';
-//import 'package:http/http.dart' as http;
+void requestData(({int iteration, SendPort sendPort}) data) {
+  var total = 0.0;
+  int delta = Random().nextInt(200000000) - 100000000;
 
-void requestData(({String parameter, SendPort sendPort}) data) async {
-  double res = 9934.434;
-
-
-  for(double d = 0; d < 5000000000; d++) {
-    res = d;
+  for (var i = 0; i < data.iteration + delta; i++) {
+    total += i;
   }
-  //Weather? weather;
-
-  // String api = 'https://api.weatherapi.com/v1/current.json';
-  // String apikey = '92033b39736a46008c3100547243011';
-  //
-  // final weatherResponse = await http.get(Uri.parse('$api?key=$apikey&q=${data.city}&aqi=no'));
-  // try {
-  //   if (weatherResponse.statusCode == 200) {
-  //     weather = Weather.fromJson(json.decode(weatherResponse.body));
-  //   } else {
-  //     debugPrint('error: ${weatherResponse.statusCode}');
-  //   }
-  // } catch (e) {
-  //   debugPrint(e.toString());
-  // }
-  data.sendPort.send(res);
+  data.sendPort.send(total);
 }
 
 class SomeDataRepo {
-  Future<void> getSomeData(String parameter, ReceivePort receiverPort) async {
-    await Isolate.spawn(requestData, (parameter: parameter, sendPort:receiverPort.sendPort));
+  Future<void> getSomeData(ReceivePort receiverPort) async {
+    await Isolate.spawn(requestData, (iteration: 1000000000, sendPort:receiverPort.sendPort));
   }
 }

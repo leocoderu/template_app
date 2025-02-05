@@ -14,3 +14,5 @@ export 'states/app/app_event.dart';
 export 'controller/theme_controller.dart';
 export 'states/theme/theme_bloc.dart';
 export 'states/theme/theme_event.dart';
+
+export 'controller/some_data_controller.dart';

@@ -1,4 +1,6 @@
 // Import Flutter
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 
 // Import Packages
@@ -12,12 +14,10 @@ import 'package:model_layer/model_layer.dart';
 
 // Import Localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:template_app/pages/settings_page/widgets/switch_tile.dart';
 
-//import 'package:template_app/pages/settings_page/widgets/triple_switch/triple_switch_ui.dart';
 
 // Import Widgets
-import 'widgets/setting_switch.dart';
+import 'widgets/switch_tile.dart';
 
 class SettingsPage extends StatefulWidget {
   static const routeName = '/settings';
@@ -30,7 +30,10 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
 
-  SwitchPosition swPos = SwitchPosition.off;
+
+
+  SwitchPosition? swPos = SwitchPosition.off;
+  bool? swResult;
 
   @override
   Widget build(BuildContext context) {
@@ -43,58 +46,84 @@ class _SettingsPageState extends State<SettingsPage> {
                 return Center(
                   child: ListView(
                     children: [
-                      SettingSwitch(
+                      SwitchTile(
                         icon: Icons.sunny,
                         title: AppLocalizations.of(context)!.settings_swSystemTheme_title,
                         subtitle: AppLocalizations.of(context)!.settings_swSystemTheme_subtitle,
-                        value: locator.get<ThemeController>().get() == ThemeMode.system,
-                        onChanged: (value) {
-                          (value)
-                              ? ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.system))
-                              : ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.light));
-                        },
+                        child: Switch.adaptive(
+                          applyCupertinoTheme: false,
+                          value: locator.get<ThemeController>().get() == ThemeMode.system,
+                          onChanged: (value) {
+                            (value)
+                                ? ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.system))
+                                : ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.light));
+                          },
+                        ),
                       ),
-                      SettingSwitch(
+                      SwitchTile(
                         enabled: locator.get<ThemeController>().get() != ThemeMode.system,
                         icon: Icons.dark_mode,
                         title: AppLocalizations.of(context)!.settings_swDarkTheme_title,
                         subtitle: AppLocalizations.of(context)!.settings_swDarkTheme_subtitle,
-                        value: locator.get<ThemeController>().get() == ThemeMode.dark,
-                        onChanged: locator.get<ThemeController>().get() == ThemeMode.system ? null
-                            : (value) {
-                          (value)
-                              ? ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.dark))
-                              : ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.light));
-                        },
+                        child: Switch.adaptive(
+                          applyCupertinoTheme: false,
+                          value: locator.get<ThemeController>().get() == ThemeMode.dark,
+                          onChanged: locator.get<ThemeController>().get() == ThemeMode.system ? null
+                              : (value) {
+                            (value)
+                                ? ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.dark))
+                                : ctx.read<ThemeBloc>().add(ChangeEvent(themeMode: ThemeMode.light));
+                          },
+                        ),
                       ),
                       Divider(),
-                      SettingSwitch(
+                      SwitchTile(
                         icon: Icons.security,
                         title: AppLocalizations.of(context)!.settings_swAuthLocal_title,
                         subtitle: AppLocalizations.of(context)!.settings_swAuthLocal_subtitle,
-                        value: appState.auth_local ?? false,
-                        onChanged: (value) => ctx.read<AppBloc>().add(ChangeAuthLocal(value: value)),
+                        child: Switch.adaptive(
+                          applyCupertinoTheme: false,
+                          value: appState.auth_local ?? false,
+                          onChanged: (value) => ctx.read<AppBloc>().add(ChangeAuthLocal(value: value)),
+                        ),
                       ),
-                      SettingSwitch(
+                      SwitchTile(
                         icon: Icons.lock_open,
                         title: AppLocalizations.of(context)!.settings_swAutoLogin_title,
                         subtitle: AppLocalizations.of(context)!.settings_swAutoLogin_subtitle,
-                        value: appState.auto_login ?? false,
-                        onChanged: (value) => ctx.read<AppBloc>().add(ChangeAutoLogin(value: value)),
+                        child: Switch.adaptive(
+                          applyCupertinoTheme: false,
+                          value: appState.auto_login ?? false,
+                          onChanged: (value) => ctx.read<AppBloc>().add(ChangeAutoLogin(value: value)),
+                        ),
                       ),
 
                       SwitchTile(
                         icon: Icons.recycling,
                         title: 'Тест Triple switch',
                         subtitle: 'Тестирование виджета',
-                        value: swPos,         // TODO: Get it from Hive
-                        timeoutOffOn: 20,   // Timeout when switching Off -> On
-                        timeoutOnOff: 10,   // Timeout when switching On -> Off
-                        onChanged: (value) {
-                          setState(() => swPos = value); // TODO: Save value to Hive
-                          // Run Heavy Function
+                        child: TripleSwitch(
+                          id: 'switchTest',
+                          value: swPos,         // TODO: Get it from Hive
+                          result: swResult,
+                          timeoutOffOn: 20,
+                          timeoutOnOff: 10,
+                          onChanged: (value) {
+                            setState(() => swPos = value); // TODO: Save value to Hive
 
-                        },
+                            // Run Heavy Function
+                            final ReceivePort receivePort = ReceivePort();
+                            locator.get<SomeDataController>().getData(receivePort);
+
+                            receivePort.listen((res) {
+                              print('Result ready: ${res}');
+                              setState(() {
+                                swResult = true;
+                              });
+                              receivePort.close();
+                            });
+                          },
+                        ),
                       ),
                     ],
                   ),

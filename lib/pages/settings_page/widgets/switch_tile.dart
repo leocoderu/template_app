@@ -1,19 +1,15 @@
 // Import Flutter
 import 'package:flutter/material.dart';
-import 'package:triple_switch/triple_switch.dart';
 
 class SwitchTile extends StatelessWidget {
   final bool? enabled;
   final IconData? icon;
   final String? title;
   final String? subtitle;
-  final SwitchPosition value;
-  final int? timeoutOffOn;
-  final int? timeoutOnOff;
-  final ValueChanged<SwitchPosition> onChanged;
+  final Widget? child;
 
   const SwitchTile({super.key, this.enabled, this.icon, this.title,
-    this.subtitle, required this.value, this.timeoutOffOn, this.timeoutOnOff, required this.onChanged,});
+    this.subtitle, this.child,});
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +26,7 @@ class SwitchTile extends StatelessWidget {
           children: [
             VerticalDivider(),
             SizedBox(width: 20),
-            TripleSwitch(
-              id: 'switchTest',
-              value: value,
-              timeoutOffOn: timeoutOffOn,
-              timeoutOnOff: timeoutOnOff,
-              onChanged: (value) {
-                 print(value);
-              },
-            ),
+            if (child != null) child!,
           ],
         ),
       ),
