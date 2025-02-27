@@ -20,18 +20,55 @@ class AppState extends HiveObject {
   @HiveField(4)
   final String? text;
 
-  AppState({this.auth_local, this.auto_login, this.counter, this.switcher, this.text});
+  @HiveField(5)
+  final bool? swSecurity;
 
-  AppState copyWith({bool? auth_local, bool? auto_login, int? counter, bool? switcher, String? text}) =>
-    AppState(
-        auth_local: auth_local ?? this.auth_local,
-        auto_login: auto_login ?? this.auto_login,
-        counter: counter ?? this.counter,
-        switcher: switcher ?? this.switcher,
-        text: text ?? this.text,
-    );
+  @HiveField(6)
+  final bool? swFireAlarm;
+
+  @HiveField(7)
+  final bool? swSprinkler;
+
+  AppState({
+    this.auth_local,
+    this.auto_login,
+    this.counter,
+    this.switcher,
+    this.text,
+    this.swSecurity,
+    this.swFireAlarm,
+    this.swSprinkler,
+  });
+
+  AppState copyWith({
+    bool? auth_local,
+    bool? auto_login,
+    int? counter,
+    bool? switcher,
+    String? text,
+    bool? swSecurity,
+    bool? swFireAlarm,
+    bool? swSprinkler,
+  }) => AppState(
+    auth_local: auth_local ?? this.auth_local,
+    auto_login: auto_login ?? this.auto_login,
+    counter: counter ?? this.counter,
+    switcher: switcher ?? this.switcher,
+    text: text ?? this.text,
+    swSecurity: swSecurity ?? this.swSecurity,
+    swFireAlarm: swFireAlarm ?? this.swFireAlarm,
+    swSprinkler: swSprinkler ?? this.swSprinkler,
+  );
 
   @override
   String toString() =>
-    'AppState(auth_local: $auth_local, auto_login:$auto_login, counter: $counter, switcher: $switcher , text: $text)';
+    'AppState(auth_local: $auth_local, '
+        'auto_login:$auto_login, '
+        'counter: $counter, '
+        'switcher: $switcher, '
+        'text: $text,'
+        'swSecurity: $swSecurity,'
+        'swFireAlarm: $swFireAlarm,'
+        'swSprinkler: $swSprinkler'
+    ')';
 }

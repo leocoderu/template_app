@@ -1,6 +1,7 @@
 // Import Flutter
-import 'dart:isolate';
+//import 'dart:isolate';
 
+import 'package:business_layer/controller/function_controller.dart';
 import 'package:flutter/material.dart';
 
 // Import Packages
@@ -32,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
 
 
-  SwitchPosition? swPos = SwitchPosition.off;
+  //SwitchPosition? swPos = SwitchPosition.off;
   bool? swResult;
 
   @override
@@ -100,31 +101,16 @@ class _SettingsPageState extends State<SettingsPage> {
 
                       SwitchTile(
                         icon: Icons.recycling,
-                        title: 'Тест Triple switch',
-                        subtitle: 'Тестирование виджета',
+                        title: 'Security ON/OFF',
+                        subtitle: 'Security system',
                         child: TripleSwitch(
-                          id: 'switchTest',
-                          value: swPos,         // TODO: Get it from Hive
-                          result: swResult,
-                          timeoutOffOn: 20,
-                          timeoutOnOff: 10,
-                          // actionOffOn: () => function2(), / null
-                          // actionOnOff: () => function1(), / null
-                          onChanged: (value) {
-                            setState(() => swPos = value); // TODO: Save value to Hive
-
-                            // Run Heavy Function
-                            final ReceivePort receivePort = ReceivePort();
-                            locator.get<SomeDataController>().getData(receivePort);
-
-                            receivePort.listen((res) {
-                              print('Result ready: ${res}');
-                              setState(() {
-                                swResult = true;
-                              });
-                              receivePort.close();
-                            });
-                          },
+                          id: 'switchSecurity',
+                          timeoutOffOn: 50,
+                          timeoutOnOff: 15,
+                          functionOffOn: locator.get<FunctionController>().hFunc1,
+                          functionOnOff: locator.get<FunctionController>().hFunc3,
+                          argumentsOffOn: [923000000],
+                          argumentsOnOff: [12, 12],
                         ),
                       ),
                     ],

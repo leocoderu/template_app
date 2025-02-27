@@ -76,12 +76,12 @@ class AppStateData {
   }
 
   //Get Switcher state value from Hive
-  Future<bool> getSwitcher() async {
+  Future<bool> getSwitch() async {
     final AppState appState = await getAppState();                  // Get Record with current data from Box
     return appState.switcher ?? false;                              // Return Data of Record
   }
   //Set Switcher state value to Hive
-  Future<void> setSwitcher(bool value) async {
+  Future<void> setSwitch(bool value) async {
     final AppState appState = await getAppState();                  // Get Record with current data from Box
     return await setAppState(appState.copyWith(switcher: value));   // Put Record with changes to the Box
   }
@@ -95,5 +95,42 @@ class AppStateData {
   Future<void> setText(String value) async {
     final AppState appState = await getAppState();                  // Get Record with current data from Box
     return await setAppState(appState.copyWith(text: value));       // Put Record with changes to the Box
+  }
+
+  Future<bool> getSwitches(String key) async {
+    final AppState appState = await getAppState();                  // Get Record with current data from Box
+
+    switch (key) {
+      case 'swSecurity':
+        return appState.swSecurity ?? false;                              // Return Data of Record
+      case 'swFireAlarm':
+        return appState.swFireAlarm ?? false;                              // Return Data of Record
+      case 'swSprinkler':
+        return appState.swFireAlarm ?? false;                              // Return Data of Record
+
+      default:
+        return false;
+    }
+
+    //return appState.swSecurity ?? false;                              // Return Data of Record
+    //SharedPreferences prefs = await SharedPreferences.getInstance();
+    //return prefs.getBool(key) ?? false;
+  }
+
+  Future<void> setSwitches(String key, bool data) async {
+    final AppState appState = await getAppState();                  // Get Record with current data from Box
+
+    switch (key) {
+      case 'swSecurity':
+        await setAppState(appState.copyWith(swSecurity: data));   // Put Record with changes to the Box
+      case 'swFireAlarm':
+        await setAppState(appState.copyWith(swFireAlarm: data));   // Put Record with changes to the Box
+      case 'swSprinkler':
+        await setAppState(appState.copyWith(swSprinkler: data));   // Put Record with changes to the Box
+    }
+
+    //return await setAppState(appState.copyWith(swSecurity: data));   // Put Record with changes to the Box
+    //SharedPreferences prefs = await SharedPreferences.getInstance();
+    //await prefs.setBool(key, data);
   }
 }

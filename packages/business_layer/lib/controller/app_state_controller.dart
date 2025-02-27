@@ -17,9 +17,12 @@ class AppStateController {
   Future<int>  getCounter() async => await locator.get<AppStateData>().getCounter();
   Future<void> setCounter(int value) async => await locator.get<AppStateData>().setCounter(value);
 
-  Future<bool> getSwitcher() async => await locator.get<AppStateData>().getSwitcher();
-  Future<void> setSwitcher(bool value) async => await locator.get<AppStateData>().setSwitcher(value);
+  Future<bool> getSwitch() async => await locator.get<AppStateData>().getSwitch();
+  Future<void> setSwitch(bool value) async => await locator.get<AppStateData>().setSwitch(value);
 
   Future<String> getText() async => await locator.get<AppStateData>().getText();
   Future<void> setText(String value) async => await locator.get<AppStateData>().setText(value);
+
+  Future<bool> getSwitches(String key) async => await locator.get<AppStateData>().getSwitches(key);
+  Future<void> setSwitches(String key, bool data) async => await locator.get<AppStateData>().setSwitches(key, data);
 }
