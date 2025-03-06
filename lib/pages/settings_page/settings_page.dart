@@ -12,6 +12,7 @@ import 'package:triple_switch/triple_switch.dart';
 import 'package:business_layer/business_layer.dart';
 import 'package:design_layer/design_layer.dart';
 import 'package:model_layer/model_layer.dart';
+import 'package:data_layer/data_layer.dart';
 
 // Import Localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -105,12 +106,26 @@ class _SettingsPageState extends State<SettingsPage> {
                         subtitle: 'Security system',
                         child: TripleSwitch(
                           id: 'switchSecurity',
-                          timeoutOffOn: 50,
+                          timeoutOffOn: 60,
                           timeoutOnOff: 15,
-                          functionOffOn: locator.get<FunctionController>().hFunc1,
-                          functionOnOff: locator.get<FunctionController>().hFunc3,
+                          functionOffOn: heavyFunction1, //locator.get<FunctionController>().hFunc1,//locator.get<heavyFunction1>()(),
+                          functionOnOff: heavyFunction3, //locator.get<FunctionController>().hFunc3,
                           argumentsOffOn: [923000000],
                           argumentsOnOff: [12, 12],
+                          on: const Text('ON', style: textStyleEnabled),
+                          off: const Text('OFF', style: textStyleDisabled),
+                          animateDuration: 200,
+                          sizeTrack: const Size(60, 30),
+                          sizeSlider: const Size(30, 30),
+                          decorationTrackOn: decorationTrackOn,
+                          decorationTrackOff: decorationTrackOff,
+                          decorationTrackWait: decorationTrackWait,
+                          decorationTrackDisabled: decorationTrackDisabled,
+                          decorationSliderOn: decorationSliderOn,
+                          decorationSliderOff: decorationSliderOff,
+                          decorationSliderWait: decorationSliderWait,
+                          decorationSliderDisabled: decorationSliderDisabled,
+                          timerStyle: textStyleEnabled,
                         ),
                       ),
                     ],

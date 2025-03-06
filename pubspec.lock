@@ -185,10 +185,10 @@ packages:
     dependency: transitive
     description:
       name: ffi
-      sha256: "16ed7b077ef01ad6170a3d0c57caa4a112a38d7a2ed5602e0aca9ca6f3d98da6"
+      sha256: "289279317b4b16eb2bb7e271abccd4bf84ec9bdcbe999e278a94b804f5630418"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.3"
+    version: "2.1.4"
   file:
     dependency: transitive
     description:
@@ -296,10 +296,10 @@ packages:
     dependency: transitive
     description:
       name: http_parser
-      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
+      sha256: "178d74305e7866013777bab2c3d8726205dc5a4dd935297175b19a23a2e66571"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.2"
+    version: "4.1.2"
   intl:
     dependency: "direct main"
     description:
@@ -344,10 +344,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "3315600f3fb3b135be672bf4a178c55f274bebe368325ae18462c89ac1e3b413"
+      sha256: c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.1.1"
   matcher:
     dependency: transitive
     description:
@@ -463,18 +463,18 @@ packages:
     dependency: transitive
     description:
       name: pedantic_mono
-      sha256: "23b8ce74610b7397363c314cd0dc0f21d175f44f4429b3b2bcc9305c3549bb19"
+      sha256: b032d4ba3f702a72d8c9a9084d1d1db917b2c072eb71ab4e85ebb0257a219674
       url: "https://pub.dev"
     source: hosted
-    version: "1.29.0"
+    version: "1.30.3"
   petitparser:
     dependency: transitive
     description:
       name: petitparser
-      sha256: c15605cd28af66339f8eb6fbe0e541bfe2d1b72d5825efc6598f3e0a31b9ad27
+      sha256: "07c8f0b1913bcde1ff0d26e57ace2f3012ccbf2b204e070290dad3bb22797646"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.2"
+    version: "6.1.0"
   platform:
     dependency: transitive
     description:
@@ -579,10 +579,12 @@ packages:
   triple_switch:
     dependency: "direct main"
     description:
-      path: "../triple_switch"
-      relative: true
-    source: path
-    version: "0.0.1"
+      path: "."
+      ref: HEAD
+      resolved-ref: "3e677cd577d983ea6651a0b481b4289c987259c3"
+      url: "https://github.com/leocoderu/triple_switch"
+    source: git
+    version: "1.0.0+1"
   typed_data:
     dependency: transitive
     description:
@@ -672,5 +674,5 @@ packages:
     source: hosted
     version: "3.1.3"
 sdks:
-  dart: ">=3.7.0-0 <4.0.0"
+  dart: ">=3.7.0 <4.0.0"
   flutter: ">=3.24.0"

@@ -25,7 +25,11 @@ Future<void> setupServices() async {
       ..registerSingleton<ThemeController>(ThemeController())
       ..registerSingleton<ThemeDataCustom>(ThemeDataCustom())
 
+      //..registerFactory(() => heavyFunction1);
+
       ..registerSingleton<FunctionController>(FunctionController());
+      //..registerLazySingleton(() => heavyFunction1);
+      //..registerLazySingleton(() => hFunc1);
 
   await locator.get<ThemeController>().init();    // Hive initialization
   await locator.get<AppStateController>().init(); // Hive initialization

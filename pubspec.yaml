@@ -17,10 +17,10 @@ dependencies:
   flutter_svg: ^2.0.9
   flutter_bloc: ^8.1.6
   triple_switch:
-    path: ../triple_switch
-    #git: https://github.com/leocoderu/triple_switch
+    #path: ../triple_switch
+    git: https://github.com/leocoderu/triple_switch
 
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.8 
   model_layer:
     path: ./packages/model_layer
   business_layer:
