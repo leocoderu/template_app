@@ -1,7 +1,4 @@
 // Import Flutter
-//import 'dart:isolate';
-
-import 'package:business_layer/controller/function_controller.dart';
 import 'package:flutter/material.dart';
 
 // Import Packages
@@ -12,30 +9,17 @@ import 'package:triple_switch/triple_switch.dart';
 import 'package:business_layer/business_layer.dart';
 import 'package:design_layer/design_layer.dart';
 import 'package:model_layer/model_layer.dart';
-import 'package:data_layer/data_layer.dart';
 
 // Import Localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 // Import Widgets
 import 'widgets/switch_tile.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   static const routeName = '/settings';
 
   const SettingsPage({super.key});
-
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-
-
-
-  //SwitchPosition? swPos = SwitchPosition.off;
-  bool? swResult;
 
   @override
   Widget build(BuildContext context) {
@@ -102,18 +86,18 @@ class _SettingsPageState extends State<SettingsPage> {
 
                       SwitchTile(
                         icon: Icons.recycling,
-                        title: 'Security ON/OFF',
-                        subtitle: 'Security system',
+                        title: AppLocalizations.of(context)!.settings_swSecurity_title,
+                        subtitle: AppLocalizations.of(context)!.settings_swSecurity_subtitle,
                         child: TripleSwitch(
                           id: 'switchSecurity',
                           timeoutOffOn: 60,
                           timeoutOnOff: 15,
-                          functionOffOn: heavyFunction1, //locator.get<FunctionController>().hFunc1,//locator.get<heavyFunction1>()(),
-                          functionOnOff: heavyFunction3, //locator.get<FunctionController>().hFunc3,
+                          functionOffOn: locator.get<FunctionController>().hFunc1,
+                          functionOnOff: locator.get<FunctionController>().hFunc3,
                           argumentsOffOn: [923000000],
                           argumentsOnOff: [12, 12],
-                          on: const Text('ON', style: textStyleEnabled),
-                          off: const Text('OFF', style: textStyleDisabled),
+                          on: Text(AppLocalizations.of(context)!.settings_swON, style: textStyleEnabled),
+                          off: Text(AppLocalizations.of(context)!.settings_swOFF, style: textStyleDisabled),
                           animateDuration: 200,
                           sizeTrack: const Size(60, 30),
                           sizeSlider: const Size(30, 30),

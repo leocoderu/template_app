@@ -102,19 +102,15 @@ class AppStateData {
 
     switch (key) {
       case 'swSecurity':
-        return appState.swSecurity ?? false;                              // Return Data of Record
+        return appState.swSecurity ?? false;                        // Return Data of Record
       case 'swFireAlarm':
-        return appState.swFireAlarm ?? false;                              // Return Data of Record
+        return appState.swFireAlarm ?? false;                       // Return Data of Record
       case 'swSprinkler':
-        return appState.swFireAlarm ?? false;                              // Return Data of Record
+        return appState.swFireAlarm ?? false;                       // Return Data of Record
 
       default:
         return false;
     }
-
-    //return appState.swSecurity ?? false;                              // Return Data of Record
-    //SharedPreferences prefs = await SharedPreferences.getInstance();
-    //return prefs.getBool(key) ?? false;
   }
 
   Future<void> setSwitches(String key, bool data) async {
@@ -122,15 +118,11 @@ class AppStateData {
 
     switch (key) {
       case 'swSecurity':
-        await setAppState(appState.copyWith(swSecurity: data));   // Put Record with changes to the Box
+        await setAppState(appState.copyWith(swSecurity: data));     // Put Record with changes to the Box
       case 'swFireAlarm':
-        await setAppState(appState.copyWith(swFireAlarm: data));   // Put Record with changes to the Box
+        await setAppState(appState.copyWith(swFireAlarm: data));    // Put Record with changes to the Box
       case 'swSprinkler':
-        await setAppState(appState.copyWith(swSprinkler: data));   // Put Record with changes to the Box
+        await setAppState(appState.copyWith(swSprinkler: data));    // Put Record with changes to the Box
     }
-
-    //return await setAppState(appState.copyWith(swSecurity: data));   // Put Record with changes to the Box
-    //SharedPreferences prefs = await SharedPreferences.getInstance();
-    //await prefs.setBool(key, data);
   }
 }

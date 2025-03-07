@@ -13,5 +13,9 @@
     "settings_swAuthLocal_title": "Локальная Авторизация",
     "settings_swAuthLocal_subtitle": "Использовать локальную авторизацию",
     "settings_swAutoLogin_title": "Автоматический вход",
-    "settings_swAutoLogin_subtitle": "Использовать автоматический вход"
+    "settings_swAutoLogin_subtitle": "Использовать автоматический вход",
+    "settings_swSecurity_title": "Охрана",
+    "settings_swSecurity_subtitle": "Охранная система",
+    "settings_swON": "ВКЛ",
+    "settings_swOFF": "ВЫКЛ"
 }

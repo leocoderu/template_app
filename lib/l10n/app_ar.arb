@@ -13,5 +13,9 @@
     "settings_swAuthLocal_title": "إذن محلي",
     "settings_swAuthLocal_subtitle": "استخدم التفويض المحلي",
     "settings_swAutoLogin_title": "تسجيل الدخول التلقائي",
-    "settings_swAutoLogin_subtitle": "استخدم تسجيل الدخول التلقائي"
+    "settings_swAutoLogin_subtitle": "استخدم تسجيل الدخول التلقائي",
+    "settings_swSecurity_title": "الأمن",
+    "settings_swSecurity_subtitle": "نظام الأمن",
+    "settings_swON": "على",
+    "settings_swOFF": "إيقاف"
 }

@@ -56,5 +56,21 @@
     "settings_swAutoLogin_subtitle": "Use Auto Login",
     "@settings_swAutoLogin_subtitle": {
         "description": "Subtitle of switcher"
+    },
+    "settings_swSecurity_title": "Security",
+    "@settings_swSecurity_title": {
+        "description": "Title of switcher"
+    },
+    "settings_swSecurity_subtitle": "Security system",
+    "@settings_swSecurity_subtitle": {
+        "description": "Subtitle of switcher"
+    },
+    "settings_swON": "ON",
+    "@settings_swON": {
+        "description": "Title of switcher ON"
+    },
+    "settings_swOFF": "OFF",
+    "@settings_swOFF": {
+        "description": "Title of switcher OFF"
     }
 }

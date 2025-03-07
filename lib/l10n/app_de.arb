@@ -13,5 +13,9 @@
     "settings_swAuthLocal_title": "Lokale Autorisierung",
     "settings_swAuthLocal_subtitle": "Lokale Autorisierung verwenden",
     "settings_swAutoLogin_title": "Automatische Anmeldung",
-    "settings_swAutoLogin_subtitle": "Automatische Anmeldung verwenden"
+    "settings_swAutoLogin_subtitle": "Automatische Anmeldung verwenden",
+    "settings_swSecurity_title": "Sicherheit",
+    "settings_swSecurity_subtitle": "Sicherheitssystem",
+    "settings_swON": "AUF",
+    "settings_swOFF": "OFF"
 }

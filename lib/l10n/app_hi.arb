@@ -13,6 +13,10 @@
     "settings_swAuthLocal_title": "स्थानीय प्राधिकरण",
     "settings_swAuthLocal_subtitle": "स्थानीय प्राधिकरण का उपयोग करें",
     "settings_swAutoLogin_title": "ऑटो लॉगिन",
-    "settings_swAutoLogin_subtitle": "ऑटो लॉगिन का उपयोग करें"
+    "settings_swAutoLogin_subtitle": "ऑटो लॉगिन का उपयोग करें",
+    "settings_swSecurity_title": "सुरक्षा",
+    "settings_swSecurity_subtitle": "सुरक्षा प्रणाली",
+    "settings_swON": "पर",
+    "settings_swOFF": "बंद"
 }
 

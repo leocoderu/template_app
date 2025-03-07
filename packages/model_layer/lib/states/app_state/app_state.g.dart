@@ -22,13 +22,16 @@ class AppStateAdapter extends TypeAdapter<AppState> {
       counter: fields[2] as int?,
       switcher: fields[3] as bool?,
       text: fields[4] as String?,
+      swSecurity: fields[5] as bool?,
+      swFireAlarm: fields[6] as bool?,
+      swSprinkler: fields[7] as bool?,
     );
   }
 
   @override
   void write(BinaryWriter writer, AppState obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.auth_local)
       ..writeByte(1)
@@ -38,7 +41,13 @@ class AppStateAdapter extends TypeAdapter<AppState> {
       ..writeByte(3)
       ..write(obj.switcher)
       ..writeByte(4)
-      ..write(obj.text);
+      ..write(obj.text)
+      ..writeByte(5)
+      ..write(obj.swSecurity)
+      ..writeByte(6)
+      ..write(obj.swFireAlarm)
+      ..writeByte(7)
+      ..write(obj.swSprinkler);
   }
 
   @override

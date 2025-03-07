@@ -1,5 +1,4 @@
 // Import Packages
-import 'package:business_layer/controller/function_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:triple_switch/triple_switch.dart';
 
@@ -25,11 +24,7 @@ Future<void> setupServices() async {
       ..registerSingleton<ThemeController>(ThemeController())
       ..registerSingleton<ThemeDataCustom>(ThemeDataCustom())
 
-      //..registerFactory(() => heavyFunction1);
-
       ..registerSingleton<FunctionController>(FunctionController());
-      //..registerLazySingleton(() => heavyFunction1);
-      //..registerLazySingleton(() => hFunc1);
 
   await locator.get<ThemeController>().init();    // Hive initialization
   await locator.get<AppStateController>().init(); // Hive initialization

@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Import Layers
 import 'package:business_layer/business_layer.dart';
 import 'package:design_layer/design_layer.dart';
-//import 'package:triple_switch/triple_switch.dart';
 
 // Import Localizations
 import '../l10n/l10n.dart';
@@ -22,7 +21,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final SwitchState switchers = SwitchState()..data.addAll({'switchTest' : SwitchModel()});
     return BlocBuilder<ThemeBloc, DefaultTheme>(
       builder: (BuildContext ctx, DefaultTheme state) {
         return MaterialApp(

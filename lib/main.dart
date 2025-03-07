@@ -20,7 +20,7 @@ Future<void> preloadSVGs(List<String> assetPaths) async {
     final loader = SvgAssetLoader(path);
     await svg.cache.putIfAbsent(
       loader.cacheKey(null),
-          () => loader.loadBytes(null),
+      () => loader.loadBytes(null),
     );
   }
 }
