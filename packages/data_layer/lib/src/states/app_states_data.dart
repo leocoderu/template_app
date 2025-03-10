@@ -28,13 +28,13 @@ class AppStateData {
   AppState getAppStateSync() {
     final Box<AppState> box = Hive.box<AppState>(boxName);          // Get Box with AppState Data type
     return box.get(keyAppState)                                     // Get Record from the Box
-      ?? AppState(auto_login: false, auth_local: false, counter: 0, switcher: false, text: '');
+      ?? AppState(autoLogin: false, authLocal: false, counter: 0, switcher: false, text: '');
   }
   // Asynchronous getting Record from the Box
   Future<AppState> getAppState() async {
-    final Box<AppState> box = await Hive.box<AppState>(boxName);    // Get Box with AppState Data type
-    return await box.get(keyAppState)                               // Get Record from the Box
-        ?? AppState(auto_login: false, auth_local: false, counter: 0, switcher: false, text: '');
+    final Box<AppState> box = Hive.box<AppState>(boxName);    // Get Box with AppState Data type
+    return box.get(keyAppState)                               // Get Record from the Box
+        ?? AppState(autoLogin: false, authLocal: false, counter: 0, switcher: false, text: '');
   }
   // Asynchronous setting Record
   Future<void> setAppState(AppState appState) async {
@@ -45,23 +45,23 @@ class AppStateData {
   //Get Auth Local state value from Hive
   Future<bool> getAuthLocal() async {
     final AppState appState = await getAppState();                  // Get Record with current data from Box
-    return appState.auth_local ?? false;                            // Return Data of Record
+    return appState.authLocal ?? false;                            // Return Data of Record
   }
   //Set Auth Local state value to Hive
   Future<void> setAuthLocal(bool value) async {
     final AppState appState = await getAppState();                  // Get Record with current data from Box
-    return await setAppState(appState.copyWith(auth_local: value)); // Put Record with changes to the Box
+    return await setAppState(appState.copyWith(authLocal: value)); // Put Record with changes to the Box
   }
 
   //Get Auto Login state value from Hive
   Future<bool> getAutoLogin() async {
     final  AppState appState = await getAppState();                 // Get Record with current data from Box
-    return appState.auto_login ?? false;                            // Return Data of Record
+    return appState.autoLogin ?? false;                            // Return Data of Record
   }
   //Set Auto Login state value to Hive
   Future<void> setAutoLogin(bool value) async {
     final AppState appState = await getAppState();                  // Get Record with current data from Box
-    return await setAppState(appState.copyWith(auto_login: value)); // Put Record with changes to the Box
+    return await setAppState(appState.copyWith(autoLogin: value)); // Put Record with changes to the Box
   }
 
   //Get Counter state value from Hive

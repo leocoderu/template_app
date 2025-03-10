@@ -9,7 +9,7 @@ import 'package:data_layer/data_layer.dart';
 final locator = GetIt.instance;
 
 Future<void> setupServices() async {
-  await locator
+  locator
       // ..registerSingleton<LocalPin>(LocalPin())
       // ..registerSingleton<LocalPinController>(LocalPinController())
       //

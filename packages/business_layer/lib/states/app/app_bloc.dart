@@ -18,11 +18,11 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       locator.get<AppStateController>().setCounter(counter);
     });
     on<ChangeAuthLocal>((event, emit) async {
-      emit(state.copyWith(auth_local: event.value));
+      emit(state.copyWith(authLocal: event.value));
       locator.get<AppStateController>().setAuthLocal(event.value);
     });
     on<ChangeAutoLogin>((event, emit) async {
-      emit(state.copyWith(auto_login: event.value));
+      emit(state.copyWith(autoLogin: event.value));
       locator.get<AppStateController>().setAutoLogin(event.value);
     });
   }

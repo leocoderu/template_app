@@ -69,7 +69,7 @@ class SettingsPage extends StatelessWidget {
                         subtitle: AppLocalizations.of(context)!.settings_swAuthLocal_subtitle,
                         child: Switch.adaptive(
                           applyCupertinoTheme: false,
-                          value: appState.auth_local ?? false,
+                          value: appState.authLocal ?? false,
                           onChanged: (value) => ctx.read<AppBloc>().add(ChangeAuthLocal(value: value)),
                         ),
                       ),
@@ -79,7 +79,7 @@ class SettingsPage extends StatelessWidget {
                         subtitle: AppLocalizations.of(context)!.settings_swAutoLogin_subtitle,
                         child: Switch.adaptive(
                           applyCupertinoTheme: false,
-                          value: appState.auto_login ?? false,
+                          value: appState.autoLogin ?? false,
                           onChanged: (value) => ctx.read<AppBloc>().add(ChangeAutoLogin(value: value)),
                         ),
                       ),

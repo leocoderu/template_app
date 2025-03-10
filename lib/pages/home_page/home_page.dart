@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             centerTitle: true,
             actions: [
               IconButton(
-                icon: const Icon(Icons.settings_rounded),
+                icon: Icon(Icons.settings_rounded),
                 onPressed: () =>  MyFluroRouter.router.navigateTo(context, '/settings'),
               ),
             ],

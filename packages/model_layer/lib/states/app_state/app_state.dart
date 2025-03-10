@@ -6,10 +6,10 @@ part 'app_state.g.dart';
 @HiveType(typeId: 0)
 class AppState extends HiveObject {
   @HiveField(0)
-  final bool? auth_local;
+  final bool? authLocal;
 
   @HiveField(1)
-  final bool? auto_login;
+  final bool? autoLogin;
 
   @HiveField(2)
   final int? counter;
@@ -30,8 +30,8 @@ class AppState extends HiveObject {
   final bool? swSprinkler;
 
   AppState({
-    this.auth_local,
-    this.auto_login,
+    this.authLocal,
+    this.autoLogin,
     this.counter,
     this.switcher,
     this.text,
@@ -41,8 +41,8 @@ class AppState extends HiveObject {
   });
 
   AppState copyWith({
-    bool? auth_local,
-    bool? auto_login,
+    bool? authLocal,
+    bool? autoLogin,
     int? counter,
     bool? switcher,
     String? text,
@@ -50,8 +50,8 @@ class AppState extends HiveObject {
     bool? swFireAlarm,
     bool? swSprinkler,
   }) => AppState(
-    auth_local: auth_local ?? this.auth_local,
-    auto_login: auto_login ?? this.auto_login,
+    authLocal: authLocal ?? this.authLocal,
+    autoLogin: autoLogin ?? this.autoLogin,
     counter: counter ?? this.counter,
     switcher: switcher ?? this.switcher,
     text: text ?? this.text,
@@ -62,8 +62,8 @@ class AppState extends HiveObject {
 
   @override
   String toString() =>
-    'AppState(auth_local: $auth_local, '
-        'auto_login:$auto_login, '
+    'AppState(auth_local: $authLocal, '
+        'auto_login:$autoLogin, '
         'counter: $counter, '
         'switcher: $switcher, '
         'text: $text,'

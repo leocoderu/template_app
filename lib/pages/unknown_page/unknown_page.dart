@@ -11,7 +11,7 @@ class NotFoundPage extends StatelessWidget {
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[const Text('Not Found Page')],
+          children: <Widget>[Text('Not Found Page')],
         ),
       ),
     );
