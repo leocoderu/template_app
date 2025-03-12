@@ -16,10 +16,18 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // Import Widgets
 import 'widgets/switch_tile.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   static const routeName = '/settings';
 
   const SettingsPage({super.key});
+
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+
+  bool sw = false;
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +98,7 @@ class SettingsPage extends StatelessWidget {
                         subtitle: AppLocalizations.of(context)!.settings_swSecurity_subtitle,
                         child: TripleSwitch(
                           id: 'switchSecurity',
+                          //enabled: false,
                           timeoutOffOn: 60,
                           timeoutOnOff: 15,
                           functionOffOn: locator.get<FunctionController>().hFunc1,
@@ -98,9 +107,10 @@ class SettingsPage extends StatelessWidget {
                           argumentsOnOff: [12, 12],
                           on: Text(AppLocalizations.of(context)!.settings_swON, style: textStyleEnabled),
                           off: Text(AppLocalizations.of(context)!.settings_swOFF, style: textStyleDisabled),
+                          disabled: Text('DIS'),
                           animateDuration: 200,
-                          sizeTrack: const Size(60, 30),
-                          sizeSlider: const Size(30, 30),
+                          sizeTrack: const Size(60, 42),
+                          sizeSlider: const Size(40, 40),
                           decorationTrackOn: decorationTrackOn,
                           decorationTrackOff: decorationTrackOff,
                           decorationTrackWait: decorationTrackWait,
@@ -112,6 +122,25 @@ class SettingsPage extends StatelessWidget {
                           timerStyle: textStyleEnabled,
                         ),
                       ),
+
+                      // SwitchTile(
+                      //   icon: Icons.recycling,
+                      //   title: AppLocalizations.of(context)!.settings_swSecurity_title,
+                      //   subtitle: AppLocalizations.of(context)!.settings_swSecurity_subtitle,
+                      //   child:
+                        TripleSwitch(
+                          //enabled: true,
+                          value: sw,
+                          onChanged: (value) => setState(() => sw = value),
+                          //sizeTrack: Size(60, 32),
+                          //sizeSlider: Size(40, 30),
+                          // decorationTrackOn: decorationTrackOn,
+                          // decorationTrackOff: decorationTrackOff,
+                          // decorationSliderOn: decorationSliderOn,
+                          // decorationSliderOff: decorationSliderOff,
+                          //on: Padding(padding: EdgeInsets.all(10), child: CircularProgressIndicator(),)
+                        ),
+                      //),
                     ],
                   ),
                 );

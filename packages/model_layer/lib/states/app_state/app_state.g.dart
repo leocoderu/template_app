@@ -17,8 +17,8 @@ class AppStateAdapter extends TypeAdapter<AppState> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return AppState(
-      auth_local: fields[0] as bool?,
-      auto_login: fields[1] as bool?,
+      authLocal: fields[0] as bool?,
+      autoLogin: fields[1] as bool?,
       counter: fields[2] as int?,
       switcher: fields[3] as bool?,
       text: fields[4] as String?,
@@ -33,9 +33,9 @@ class AppStateAdapter extends TypeAdapter<AppState> {
     writer
       ..writeByte(8)
       ..writeByte(0)
-      ..write(obj.auth_local)
+      ..write(obj.authLocal)
       ..writeByte(1)
-      ..write(obj.auto_login)
+      ..write(obj.autoLogin)
       ..writeByte(2)
       ..write(obj.counter)
       ..writeByte(3)
