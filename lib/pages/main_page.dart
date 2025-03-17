@@ -1,19 +1,19 @@
-// Import Flutter
+/// Import Flutter
 import 'package:flutter/material.dart';
 
-// Import Packages
+/// Import Packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// Import Layers
+/// Import Layers
 import 'package:business_layer/business_layer.dart';
 import 'package:design_layer/design_layer.dart';
 
-// Import Localizations
+/// Import Localizations
 import '../l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-// Import Navigation
+/// Import Navigation
 import '../fluro_router.dart';
 
 class MainPage extends StatelessWidget {

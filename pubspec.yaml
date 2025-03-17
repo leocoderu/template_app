@@ -17,8 +17,8 @@ dependencies:
   fluro: ^2.0.5
   flutter_svg: ^2.0.9
   flutter_bloc: ^8.1.6
-  triple_switch: #^1.0.0
-    path: ../triple_switch
+  triple_switch: ^1.1.4
+    #path: ../triple_switch
     #git: https://github.com/leocoderu/triple_switch
 
   cupertino_icons: ^1.0.8 

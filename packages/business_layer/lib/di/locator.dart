@@ -15,8 +15,6 @@ Future<void> setupServices() async {
       //
       // ..registerSingleton<LocalAuthController>(LocalAuthController())
       // ..registerSingleton<LocalAuth>(LocalAuth())
-      //..registerSingleton<SomeDataController>(SomeDataController())
-      //..registerSingleton<SomeDataRepo>(SomeDataRepo())
 
       ..registerSingleton<AppStateController>(AppStateController())
       ..registerSingleton<AppStateData>(AppStateData())

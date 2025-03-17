@@ -1,22 +1,22 @@
-// Import Dart and Flatter
+/// Import Dart and Flatter
 import 'dart:io';
 import 'package:flutter/material.dart';
 
-// Import Packages
+/// Import Packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// Import Localizations
+/// Import Localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-// Import Layers
+/// Import Layers
 import 'package:business_layer/business_layer.dart';
 import 'package:design_layer/design_layer.dart';
 import 'package:model_layer/model_layer.dart';
 
-// Import Widgets
+/// Import Widgets
 import 'widgets/gradient_colors.dart';
 
-// Import Navigation
+/// Import Navigation
 import '../../fluro_router.dart';
 
 class HomePage extends StatefulWidget {

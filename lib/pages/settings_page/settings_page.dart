@@ -1,19 +1,19 @@
-// Import Flutter
+/// Import Flutter
 import 'package:flutter/material.dart';
 
-// Import Packages
+/// Import Packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:triple_switch/triple_switch.dart';
 
-// Import Layers
+/// Import Layers
 import 'package:business_layer/business_layer.dart';
 import 'package:design_layer/design_layer.dart';
 import 'package:model_layer/model_layer.dart';
 
-// Import Localizations
+/// Import Localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-// Import Widgets
+/// Import Widgets
 import 'widgets/switch_tile.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -151,23 +151,3 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 }
-
-// TripleSwitch(
-//    id: 'switchSecurity',
-//    value: locator.get<Hive>().getPosition,                 // swPos is bool position of switch
-//    timeoutOffOn: 20,
-//    timeoutOnOff: null,
-//    actionOffOn:  () async => await function1(),
-//    actionOnOff:  null,
-//    onChanged: (value) => locator.get<Hive>().setPosition,  // to swPos save bool position of switch
-// ),
-
-// Future<double> function1() async {
-//   var total = 0.0;
-//   int delta = Random().nextInt(200000000) - 100000000;
-//
-//   for (var i = 0; i < data.iteration + delta; i++) {
-//     total += i;
-//   }
-//   return total;
-// }

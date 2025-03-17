@@ -1,7 +1,7 @@
-// Import Packages
+/// Import Packages
 import 'package:fluro/fluro.dart';
 
-// Import Pages
+/// Import Pages
 import 'package:template_app/pages/home_page/home_page.dart';
 import 'package:template_app/pages/settings_page/settings_page.dart';
 import 'package:template_app/pages/unknown_page/unknown_page.dart';

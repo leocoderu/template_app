@@ -1,20 +1,18 @@
-// Import Flutter
+/// Import Flutter
 import 'package:flutter/material.dart';
 
-// Import Packages
-import 'package:flutter_bloc/flutter_bloc.dart';
+/// Import Packages
+import 'fluro_router.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-// Import Layers
+/// Import Layers
 import 'package:business_layer/business_layer.dart';
 
-// Import Navigation
-import 'fluro_router.dart';
-
-// Import widgets
+/// Import widgets
 import 'pages/main_page.dart';
 
-// Function for preload SVG files
+/// Function for preload SVG files
 Future<void> preloadSVGs(List<String> assetPaths) async {
   for (final path in assetPaths) {
     final loader = SvgAssetLoader(path);
@@ -36,11 +34,12 @@ void main() async {
   MyFluroRouter.setupRouter();        // Initialize Fluro Router Navigator
   await setupServices();              // Initialize Dependency Injection Services (Locator)
 
-  runApp(MultiBlocProvider(providers: [
-    BlocProvider(create: (_) => ThemeBloc()),
-    BlocProvider(create: (_) => AppBloc()),
-    // << - Type here all BloC states
-  ],
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (_) => ThemeBloc()),
+      BlocProvider(create: (_) => AppBloc()),
+      // << - Type here all BloC states
+    ],
     child: const MainPage(),
   ));
 }
